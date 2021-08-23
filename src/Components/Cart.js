@@ -29,6 +29,28 @@ export default class Cart extends Component {
     };
   }
 
+  increaseQuantity = (product) => {
+    console.log("Product", product);
+    const { products } = this.state;
+    const idx = products.indexOf(product);
+    products[idx].qty += 1;
+    this.setState({
+      product,
+    });
+  };
+
+  decreaseQuantity = (product) => {
+    console.log("Products", product);
+    const { products } = this.state;
+    const idx = products.indexOf(product);
+    if (products[idx].qty === 0) {
+      return;
+    }
+    products[idx].qty -= 1;
+    this.setState({
+      product,
+    });
+  };
   render() {
     let { products } = this.state;
     return (
@@ -40,6 +62,8 @@ export default class Cart extends Component {
             <CartItems
               key={product.id}
               product={product}
+              handleIncrease={this.increaseQuantity}
+              handleDecrease={this.decreaseQuantity}
               //   func={() => { can pass a function
               //     console.log("hello");
               //   }}
