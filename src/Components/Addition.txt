@@ -1,0 +1,44 @@
+//Adding each element  with 5
+import React, { Component } from "react";
+import CartItems from "./CartItems";
+
+export default class Cart extends Component {
+  render() {
+    const arr = [1, 2, 3, 4, 5];
+    // want to add 5 to each item
+    return (
+      <div className="cart">
+        {/* <CartItems /> */}
+        {arr.map((item) => {
+          return item + 5;
+        })}
+      </div>
+    );
+  }
+}
+
+
+____________________________________________________
+import React, { Component } from "react";
+
+export default class RenderList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      relatives: [{ name: "Arafat" }, { name: "Aquib" }, { name: "Tirth Sir" }],
+    };
+  }
+
+  render() {
+    let { relatives } = this.state;
+    return (
+      <div>
+        <h1>Hello Everyone</h1>
+        {relatives.map((rel, i) => {
+          return <p key={i + 1}>{rel.name}</p>;
+        })}
+      </div>
+    );
+  }
+}

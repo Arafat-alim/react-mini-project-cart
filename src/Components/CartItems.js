@@ -2,19 +2,19 @@ import React from "react";
 
 class CartItems extends React.Component {
   // deffining the state here
-  constructor() {
-    super();
-    this.state = {
-      title: "Mobile Phone",
-      price: 999,
-      qty: 1,
-      img: "",
-    };
-    //calling testing() - promise
-    // this.testing();
-    //just add this code if you are not using an arrow function
-    // this.handleIncrease = this.handleIncrease.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     title: "Mobile Phone",
+  //     price: 999,
+  //     qty: 1,
+  //     img: "",
+  //   };
+  //calling testing() - promise
+  // this.testing();
+  //just add this code if you are not using an arrow function
+  // this.handleIncrease = this.handleIncrease.bind(this);
+  // }
 
   handleIncrease = () => {
     // console.log((this.state.qty += 1)); ///but not rendering my state in the ui
@@ -91,10 +91,13 @@ class CartItems extends React.Component {
 
   render() {
     console.log("render");
+    console.log(this.props);
     //   destructuring
-    const { title, price, qty } = this.state;
+    // const { title, price, qty } = this.props.product;
+    const { title, price, qty } = this.props.product;
     return (
       <div className="cart-item">
+        {/* {this.props.jsx} */}
         <div className="left-block">
           <img style={styles.image} />
         </div>
