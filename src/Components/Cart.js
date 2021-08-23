@@ -4,7 +4,7 @@ import CartItems from "./CartItems";
 export default class Cart extends Component {
   render() {
     return (
-      <div>
+      <div className="cart">
         <CartItems />
         <CartItems />
         <CartItems />
