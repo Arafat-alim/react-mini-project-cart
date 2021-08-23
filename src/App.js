@@ -1,9 +1,10 @@
 import Cart from "./Components/Cart";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Cart</h1>
+      <Navbar />
       <Cart />
     </div>
   );
