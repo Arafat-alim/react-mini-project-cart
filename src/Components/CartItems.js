@@ -32,6 +32,15 @@ class CartItems extends React.Component {
     });
   };
 
+  handleDecrement = () => {
+    this.setState((prevState) => {
+      return {
+        // qty: prevState.qty === 0 ? "0" : prevState.qty - 1,
+        qty: prevState.qty - 1,
+      };
+    });
+  };
+
   render() {
     //   destructuring
     const { title, price, qty } = this.state;
@@ -56,6 +65,7 @@ class CartItems extends React.Component {
               className="action-icons"
               src="https://image.flaticon.com/icons/png/512/992/992683.png"
               alt="decrease"
+              onClick={this.handleDecrement}
             />
             <img
               className="action-icons"
