@@ -16,8 +16,20 @@ class CartItems extends React.Component {
   }
 
   handleIncrease = () => {
-    console.log(this);
-    console.log(this.state);
+    // console.log((this.state.qty += 1)); ///but not rendering my state in the ui
+    // using setState we can re-render my component
+    // 1st form setState({}) passing an object which we want to change the property
+    // this.setState({
+    //   //   qty: this.state.qty + 1,
+    //   title: "some new title",
+    // });
+    // 2nd form setState(callfunct) passing a call back with return
+    this.setState((prevState) => {
+      // it is used when we want a prev state
+      return {
+        qty: prevState.qty + 1,
+      };
+    });
   };
 
   render() {
