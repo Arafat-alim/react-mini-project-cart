@@ -1,22 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 //we dont have any states, thats why we converted this into the functional based
 
-export default class Navbar extends Component {
-  render() {
-    return (
-      <div style={styles.nav}>
-        <div style={styles.cartIconContainer}>
-          <img
-            style={styles.cartIcon}
-            src="https://img-premium.flaticon.com/png/512/2543/premium/2543369.png?token=exp=1629747594~hmac=ac24a40a54f896596b1e32adff94b90d"
-            alt="cart-icon"
-          />
-          <span style={styles.cartCount}>3</span>
-        </div>
+const Navbar = (props) => {
+  return (
+    <div style={styles.nav}>
+      <div style={styles.cartIconContainer}>
+        <img
+          style={styles.cartIcon}
+          src="https://img-premium.flaticon.com/png/512/2543/premium/2543369.png?token=exp=1629747594~hmac=ac24a40a54f896596b1e32adff94b90d"
+          alt="cart-icon"
+        />
+        <span style={styles.cartCount}>3</span>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 // styles
 const styles = {
@@ -45,3 +43,5 @@ const styles = {
     top: -9,
   },
 };
+
+export default Navbar;
