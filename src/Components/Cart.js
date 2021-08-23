@@ -51,6 +51,16 @@ export default class Cart extends Component {
       product,
     });
   };
+
+  deleteQuantity = (id) => {
+    //come from the child
+    const { products } = this.state;
+    const items = products.filter((item) => item.id !== id);
+
+    this.setState({
+      products: items,
+    });
+  };
   render() {
     let { products } = this.state;
     return (
@@ -64,6 +74,7 @@ export default class Cart extends Component {
               product={product}
               handleIncrease={this.increaseQuantity}
               handleDecrease={this.decreaseQuantity}
+              handleDelete={this.deleteQuantity}
               //   func={() => { can pass a function
               //     console.log("hello");
               //   }}

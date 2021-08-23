@@ -95,6 +95,8 @@ class CartItems extends React.Component {
     //   destructuring
     // const { title, price, qty } = this.props.product;
     const { title, price, qty } = this.props.product;
+    const { handleIncrease, handleDecrease, handleDelete, product } =
+      this.props;
     return (
       <div className="cart-item">
         {/* {this.props.jsx} */}
@@ -111,18 +113,19 @@ class CartItems extends React.Component {
               className="action-icons"
               src="https://image.flaticon.com/icons/png/512/1828/1828919.png"
               alt="increase"
-              onClick={() => this.props.handleIncrease(this.props.product)}
+              onClick={() => handleIncrease(product)}
             />
             <img
               className="action-icons"
               src="https://image.flaticon.com/icons/png/512/992/992683.png"
               alt="decrease"
-              onClick={() => this.props.handleDecrease(this.props.product)}
+              onClick={() => handleDecrease(product)}
             />
             <img
               className="action-icons"
               src="https://image.flaticon.com/icons/png/512/1214/1214428.png"
               alt="Delete"
+              onClick={() => handleDelete(product.id)}
             />
           </div>
         </div>
