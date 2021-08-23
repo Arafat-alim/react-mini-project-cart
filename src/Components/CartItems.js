@@ -10,7 +10,8 @@ class CartItems extends React.Component {
       qty: 1,
       img: "",
     };
-
+    //calling testing() - promise
+    // this.testing();
     //just add this code if you are not using an arrow function
     // this.handleIncrease = this.handleIncrease.bind(this);
   }
@@ -69,6 +70,24 @@ class CartItems extends React.Component {
       }
     );
   };
+
+  //fetching - Promise - will fix soon in upcoming react
+  //   testing() {
+  //     //setState acts like a synchronous call
+  //     const promise = new Promise((resolve, reject) => {
+  //       setTimeout(() => {
+  //         resolve("done");
+  //       }, 5000);
+  //     });
+
+  //     promise.then(() => {
+  //       this.setState({ qty: this.state.qty + 10 });
+  //       this.setState({ qty: this.state.qty + 10 });
+  //       this.setState({ qty: this.state.qty + 10 });
+
+  //       console.log(this.state);
+  //     });
+  //   }
 
   render() {
     console.log("render");
