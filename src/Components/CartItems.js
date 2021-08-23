@@ -24,24 +24,54 @@ class CartItems extends React.Component {
     //   title: "some new title",
     // });
     // 2nd form setState(callfunct) passing a call back with return
-    this.setState((prevState) => {
-      // it is used when we want a prev state
-      return {
-        qty: prevState.qty + 1,
-      };
-    });
+    this.setState(
+      (prevState) => {
+        // it is used when we want a prev state
+        return {
+          qty: prevState.qty + 1,
+        };
+      },
+      () => {
+        console.log(this.state); // passing a second argument as a callback function then it will updated
+      }
+    );
+    // this.setState((prevState) => {
+    //   // it is used when we want a prev state
+    //   return {
+    //     qty: prevState.qty + 1,
+    //   };
+    // });
+    // this.setState((prevState) => {
+    //   // it is used when we want a prev state
+    //   return {
+    //     qty: prevState.qty + 1,
+    //   };
+    // });
+    // here batching is performed - only render once
+    // console.log(this.state); // asynchronouse is happening
   };
 
   handleDecrement = () => {
-    this.setState((prevState) => {
-      return {
-        // qty: prevState.qty === 0 ? "0" : prevState.qty - 1,
-        qty: prevState.qty - 1,
-      };
-    });
+    const { qty } = this.state;
+    if (qty === 0) {
+      return;
+    }
+
+    this.setState(
+      (prevState) => {
+        return {
+          // qty: prevState.qty === 0 ? "0" : prevState.qty - 1,
+          qty: prevState.qty - 1,
+        };
+      },
+      () => {
+        console.log(this.state); // calling second argument as a callback to up to date my state
+      }
+    );
   };
 
   render() {
+    console.log("render");
     //   destructuring
     const { title, price, qty } = this.state;
     return (
