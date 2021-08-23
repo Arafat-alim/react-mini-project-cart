@@ -10,7 +10,15 @@ class CartItems extends React.Component {
       qty: 1,
       img: "",
     };
+
+    //just add this code if you are not using an arrow function
+    // this.handleIncrease = this.handleIncrease.bind(this);
   }
+
+  handleIncrease = () => {
+    console.log(this);
+    console.log(this.state);
+  };
 
   render() {
     //   destructuring
@@ -30,6 +38,7 @@ class CartItems extends React.Component {
               className="action-icons"
               src="https://image.flaticon.com/icons/png/512/1828/1828919.png"
               alt="increase"
+              onClick={this.handleIncrease}
             />
             <img
               className="action-icons"
