@@ -1,4 +1,5 @@
 import React from "react";
+
 //we dont have any states, thats why we converted this into the functional based
 
 const Navbar = (props) => {
@@ -10,7 +11,7 @@ const Navbar = (props) => {
           src="https://img-premium.flaticon.com/png/512/2543/premium/2543369.png?token=exp=1629747594~hmac=ac24a40a54f896596b1e32adff94b90d"
           alt="cart-icon"
         />
-        <span style={styles.cartCount}>3</span>
+        <span style={styles.cartCount}>{props.count}</span>
       </div>
     </div>
   );
