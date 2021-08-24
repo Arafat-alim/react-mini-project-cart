@@ -13,18 +13,21 @@ class App extends Component {
           title: "Mobile",
           price: 5999,
           qty: 12,
+          img: "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
         },
         {
           id: 2,
           title: "Watch",
           price: 999,
           qty: 1,
+          img: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=340&q=80",
         },
         {
           id: 3,
           title: "Sapphire Pen",
           price: 99,
           qty: 5,
+          img: "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80",
         },
       ],
     };
@@ -72,6 +75,17 @@ class App extends Component {
 
     return count;
   };
+
+  getCartTotal = () => {
+    const { products } = this.state;
+    let cartTotal = 0;
+
+    products.map((product) => {
+      cartTotal = cartTotal + product.qty * product.price;
+    });
+
+    return cartTotal;
+  };
   render() {
     const { products } = this.state;
     return (
@@ -83,6 +97,9 @@ class App extends Component {
           handleDecrease={this.decreaseQuantity}
           handleDelete={this.deleteQuantity}
         />
+        <div style={{ fontSize: 20, padding: 10 }}>
+          TOTAL: {this.getCartTotal()}
+        </div>
       </div>
     );
   }
