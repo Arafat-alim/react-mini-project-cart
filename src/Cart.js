@@ -35,6 +35,36 @@ class Cart extends React.Component {
     // this.handleIncrease = this.handleIncrease.bind(this);
     // this.testing();
   }
+  increaseHandle = (item) => {
+    console.log("hey Please increase the quantity", item);
+    const { products } = this.state;
+    // find the index we got from the children
+    const index = products.indexOf(item);
+    // updating the product qty value
+    products[index].qty += 1; //updated qty
+
+    this.setState({
+      products,
+    });
+  };
+
+  decreaseHandler = (item) => {
+    console.log("Hey please decrease the quantity of item", item);
+    const { products } = this.state;
+    //! finding the item index first
+    const index = products.indexOf(item);
+    //! checking if the quantity is zero or not
+    if (!products[index].qty) {
+      return;
+    }
+    //! If qty is not zero, then updating the product qty value
+    products[index].qty -= 1;
+    //! updated the product using setState
+
+    this.setState({
+      products,
+    });
+  };
   render() {
     const { products } = this.state;
     return (
@@ -42,16 +72,10 @@ class Cart extends React.Component {
         {products.map((item) => {
           return (
             <CartItem
-              qty={item.qty}
-              title={item.title}
-              price={item.price}
-              imgSrc={item.imgSrc}
               key={item.id.toString()}
-              isLogged={true}
-              comp={<CartItem />}
-              func={() => console.log("hello")}
-              jsx={<h1>JSX hai Apun</h1>}
               item={item}
+              onIncreaseHandle={this.increaseHandle}
+              onDecreaseHandle={this.decreaseHandler}
             />
           );
         })}

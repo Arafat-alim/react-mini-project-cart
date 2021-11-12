@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 export class CartItem extends Component {
-  //   handleIncrease() {
-  //     console.log("this is  - ", this);
-  //     console.log("this", this.state); //this undefined
-  //   }
   handleIncrease = () => {
     // setState form 1
     this.setState(
@@ -15,34 +11,7 @@ export class CartItem extends Component {
         console.log("this.state", this.state);
       }
     );
-    // setState form 2 -
-    // this.setState(
-    //   (prevState) => {
-    //     return {
-    //       qty: prevState.qty + 1,
-    //     };
-    //   },
-    //   () => {
-    //     console.log("this.state", this.state);
-    //   }
-    // );
   };
-
-  //   testing() {
-  //     const promise = new Promise((resolve, reject) => {
-  //       setTimeout(() => {
-  //         resolve("Done");
-  //       }, 5000);
-  //     });
-
-  //     promise.then(() => {
-  //       this.setState({ qty: this.state.qty + 10 });
-  //       this.setState({ qty: this.state.qty + 10 });
-  //       this.setState({ qty: this.state.qty + 10 });
-
-  //       console.log("this.state", this.state);
-  //     });
-  //   }
 
   handleDecrease = () => {
     let { qty } = this.state;
@@ -58,7 +27,7 @@ export class CartItem extends Component {
   render() {
     console.log("render");
     console.log(this.props, this.props);
-    const { title, price, qty, imgSrc } = this.props;
+    const { title, price, qty, imgSrc } = this.props.item;
     return (
       <div>
         <div className="cart-item">
@@ -74,14 +43,14 @@ export class CartItem extends Component {
                 src="https://cdn-icons.flaticon.com/png/512/3303/premium/3303893.png?token=exp=1636735192~hmac=42956a57b90a890914cc723ae6fa2fe5"
                 alt="increase"
                 className="action-icons"
-                // onClick={this.handleIncrease.bind(this)}
-                onClick={this.handleIncrease}
+                //! child to parent data passing
+                onClick={() => this.props.onIncreaseHandle(this.props.item)}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
                 alt="decrease"
                 className="action-icons"
-                onClick={this.handleDecrease}
+                onClick={() => this.props.onDecreaseHandle(this.props.item)}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
