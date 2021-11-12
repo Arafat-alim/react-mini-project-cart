@@ -24,10 +24,12 @@ export class CartItem extends Component {
       };
     });
   };
+
   render() {
     console.log("render");
     console.log(this.props, this.props);
     const { title, price, qty, imgSrc } = this.props.item;
+    const { onDecreaseHandle, onDelete, onIncreaseHandle, item } = this.props;
     return (
       <div>
         <div className="cart-item">
@@ -44,18 +46,19 @@ export class CartItem extends Component {
                 alt="increase"
                 className="action-icons"
                 //! child to parent data passing
-                onClick={() => this.props.onIncreaseHandle(this.props.item)}
+                onClick={() => onIncreaseHandle(item)}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
                 alt="decrease"
                 className="action-icons"
-                onClick={() => this.props.onDecreaseHandle(this.props.item)}
+                onClick={() => onDecreaseHandle(item)}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
                 alt="delete"
                 className="action-icons"
+                onClick={() => onDelete(item.id)}
               />
             </div>
           </div>

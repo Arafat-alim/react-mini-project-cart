@@ -35,7 +35,7 @@ class Cart extends React.Component {
     // this.handleIncrease = this.handleIncrease.bind(this);
     // this.testing();
   }
-  increaseHandle = (item) => {
+  increaseHandler = (item) => {
     console.log("hey Please increase the quantity", item);
     const { products } = this.state;
     // find the index we got from the children
@@ -65,18 +65,34 @@ class Cart extends React.Component {
       products,
     });
   };
+
+  deleteHandler = (id) => {
+    console.log("Hey please the item from the list", id);
+    const { products } = this.state;
+    const items = products.filter((item) => item.id !== id); //new array with deleted items
+
+    // updated the list
+    this.setState({
+      products: items,
+    });
+  };
   render() {
     const { products } = this.state;
     return (
       <div className="cart">
         {products.map((item) => {
-          return (
+          return products.length !== 0 ? (
             <CartItem
               key={item.id.toString()}
               item={item}
-              onIncreaseHandle={this.increaseHandle}
+              onIncreaseHandle={this.increaseHandler}
               onDecreaseHandle={this.decreaseHandler}
+              onDelete={this.deleteHandler}
             />
+          ) : (
+            <div>
+              <h1>Show Me Boss</h1>
+            </div>
           );
         })}
       </div>
