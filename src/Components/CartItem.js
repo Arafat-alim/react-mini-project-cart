@@ -17,8 +17,24 @@ export class CartItem extends Component {
   //     console.log("this", this.state); //this undefined
   //   }
   handleIncrease = () => {
-    console.log("this is  - ", this);
-    console.log("this", this.state); //this undefined
+    // setState form 1
+    /* this.setState({
+      qty: this.state.qty + 1,
+    }); */
+    // setState form 2 -
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty + 1,
+      };
+    });
+  };
+
+  handleDecrease = () => {
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty - 1,
+      };
+    });
   };
   render() {
     const { title, price, qty, imgSrc } = this.state;
@@ -44,6 +60,7 @@ export class CartItem extends Component {
                 src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
                 alt="decrease"
                 className="action-icons"
+                onClick={this.handleDecrease}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
