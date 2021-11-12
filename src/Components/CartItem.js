@@ -11,6 +11,7 @@ export class CartItem extends Component {
         "https://images.unsplash.com/photo-1607936854279-55e8a4c64888?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80",
     };
     // this.handleIncrease = this.handleIncrease.bind(this);
+    // this.testing();
   }
   //   handleIncrease() {
   //     console.log("this is  - ", this);
@@ -39,6 +40,22 @@ export class CartItem extends Component {
     // );
   };
 
+  //   testing() {
+  //     const promise = new Promise((resolve, reject) => {
+  //       setTimeout(() => {
+  //         resolve("Done");
+  //       }, 5000);
+  //     });
+
+  //     promise.then(() => {
+  //       this.setState({ qty: this.state.qty + 10 });
+  //       this.setState({ qty: this.state.qty + 10 });
+  //       this.setState({ qty: this.state.qty + 10 });
+
+  //       console.log("this.state", this.state);
+  //     });
+  //   }
+
   handleDecrease = () => {
     let { qty } = this.state;
     if (!qty) {
@@ -51,6 +68,7 @@ export class CartItem extends Component {
     });
   };
   render() {
+    console.log("render");
     const { title, price, qty, imgSrc } = this.state;
     return (
       <div>
