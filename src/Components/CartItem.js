@@ -6,12 +6,12 @@ export class CartItem extends Component {
       <div>
         <div className="cart-item">
           <div className="right-block">
-            <img alt="product-img" />
+            <img style={styles.image} />
           </div>
           <div className="left-block">
-            <div>Phone</div>
-            <div>Rs. 999</div>
-            <div>Qnty: 9</div>
+            <div style={{ fontSize: "25px" }}>Phone</div>
+            <div style={{ color: "#ddd" }}>Rs. 999</div>
+            <div style={{ color: "#ddd" }}>Qnty: 9</div>
             <div className="cart-item-actions">{/* Buttons */}</div>
           </div>
         </div>
@@ -19,5 +19,14 @@ export class CartItem extends Component {
     );
   }
 }
+// styling my component
+const styles = {
+  image: {
+    height: 110,
+    width: 110,
+    borderRadius: 4,
+    backgroundColor: "black",
+  },
+};
 
 export default CartItem;
