@@ -6,7 +6,7 @@ export class CartItem extends Component {
     this.state = {
       title: "Apple",
       price: 999,
-      qty: 99,
+      qty: 0,
       imgSrc:
         "https://images.unsplash.com/photo-1607936854279-55e8a4c64888?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80",
     };
@@ -18,18 +18,32 @@ export class CartItem extends Component {
   //   }
   handleIncrease = () => {
     // setState form 1
-    /* this.setState({
-      qty: this.state.qty + 1,
-    }); */
+    this.setState(
+      {
+        qty: this.state.qty + 1,
+      },
+      () => {
+        console.log("this.state", this.state);
+      }
+    );
     // setState form 2 -
-    this.setState((prevState) => {
-      return {
-        qty: prevState.qty + 1,
-      };
-    });
+    // this.setState(
+    //   (prevState) => {
+    //     return {
+    //       qty: prevState.qty + 1,
+    //     };
+    //   },
+    //   () => {
+    //     console.log("this.state", this.state);
+    //   }
+    // );
   };
 
   handleDecrease = () => {
+    let { qty } = this.state;
+    if (!qty) {
+      return;
+    }
     this.setState((prevState) => {
       return {
         qty: prevState.qty - 1,
