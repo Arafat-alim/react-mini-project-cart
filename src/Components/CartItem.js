@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 
 export class CartItem extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "Apple",
-      price: 999,
-      qty: 0,
-      imgSrc:
-        "https://images.unsplash.com/photo-1607936854279-55e8a4c64888?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80",
-    };
-    // this.handleIncrease = this.handleIncrease.bind(this);
-    // this.testing();
-  }
   //   handleIncrease() {
   //     console.log("this is  - ", this);
   //     console.log("this", this.state); //this undefined
@@ -69,7 +57,8 @@ export class CartItem extends Component {
   };
   render() {
     console.log("render");
-    const { title, price, qty, imgSrc } = this.state;
+    console.log(this.props, this.props);
+    const { title, price, qty, imgSrc } = this.props;
     return (
       <div>
         <div className="cart-item">
@@ -78,8 +67,8 @@ export class CartItem extends Component {
           </div>
           <div className="left-block">
             <div style={{ fontSize: "25px" }}>{title}</div>
-            <div style={{ color: "#ddd" }}>Price: ${price}</div>
-            <div style={{ color: "#ddd" }}>Qnty: {qty}</div>
+            <div style={{ color: "#aaa" }}>Price: ${price}</div>
+            <div style={{ color: "#aaa" }}>Qnty: {qty}</div>
             <div className="cart-item-actions">
               <img
                 src="https://cdn-icons.flaticon.com/png/512/3303/premium/3303893.png?token=exp=1636735192~hmac=42956a57b90a890914cc723ae6fa2fe5"
