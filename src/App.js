@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import Cart from "./Cart";
-import Navbar from "./Components/Navbar";
+import ParentsApp from "./ParentsApp";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <Cart />
+        <ParentsApp />
       </div>
     );
   }

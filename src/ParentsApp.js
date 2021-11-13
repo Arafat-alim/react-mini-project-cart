@@ -1,7 +1,7 @@
-import React from "react";
-import CartItem from "./Components/CartItem";
-
-class Cart extends React.Component {
+import React, { Component } from "react";
+import Cart from "./Components/Cart";
+import Navbar from "./Components/Navbar";
+class ParentsApp extends Component {
   constructor() {
     super();
     this.state = {
@@ -76,28 +76,28 @@ class Cart extends React.Component {
       products: items,
     });
   };
+  getCartCount = () => {
+    const { products } = this.state;
+    let count = 0;
+    products.forEach((item) => {
+      count += item.qty;
+    });
+    return count;
+  };
   render() {
     const { products } = this.state;
     return (
-      <div className="cart">
-        {products.map((item) => {
-          return products.length !== 0 ? (
-            <CartItem
-              key={item.id.toString()}
-              item={item}
-              onIncreaseHandle={this.increaseHandler}
-              onDecreaseHandle={this.decreaseHandler}
-              onDelete={this.deleteHandler}
-            />
-          ) : (
-            <div>
-              <h1>Show Me Boss</h1>
-            </div>
-          );
-        })}
+      <div>
+        <Navbar count={this.getCartCount()} />
+        <Cart
+          onIncreaseHandle={this.increaseHandler}
+          onDecreaseHandle={this.decreaseHandler}
+          onDelete={this.deleteHandler}
+          products={products}
+        />
       </div>
     );
   }
 }
 
-export default Cart;
+export default ParentsApp;
