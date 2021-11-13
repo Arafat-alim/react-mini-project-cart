@@ -84,6 +84,15 @@ class ParentsApp extends Component {
     });
     return count;
   };
+
+  getCartTotal = () => {
+    const { products } = this.state;
+    let cartTotal = 0;
+    products.map((item) => {
+      cartTotal = cartTotal + item.qty * item.price;
+    });
+    return cartTotal;
+  };
   render() {
     const { products } = this.state;
     return (
@@ -95,6 +104,9 @@ class ParentsApp extends Component {
           onDelete={this.deleteHandler}
           products={products}
         />
+        <div style={{ fontSize: 25, padding: 20 }}>
+          TOTAL : ${this.getCartTotal()}
+        </div>
       </div>
     );
   }
